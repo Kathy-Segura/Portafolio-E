@@ -1,7 +1,7 @@
 
 "use client";
 import { motion } from "framer-motion";
-import { FaCode, FaCogs, FaDatabase, FaLaptopCode, FaDesktop, FaServer, FaHtml5, FaCss3Alt } from "react-icons/fa"; // Importa los íconos
+import { FaCode, FaCogs, FaDatabase, FaLaptopCode, FaDesktop, FaHtml5, FaCss3Alt } from "react-icons/fa"; // Importa los íconos
 
 export default function Formation() {
   return (

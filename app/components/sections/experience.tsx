@@ -1,7 +1,5 @@
 
 "use client";
-import { motion } from "framer-motion";
-import { FaDesktop } from "react-icons/fa";
 import { SiPhp, SiCodeigniter, SiMysql, SiXampp, SiDotnet, SiBootstrap, SiAndroidstudio, SiKotlin, SiMongodb, SiPython } from "react-icons/si";
 import Image from "next/image";
 
