@@ -10,23 +10,24 @@ export default function Home() {
   return (
     <div>
       {/* Sección de inicio */}
-      <section className="relative flex flex-col items-center justify-center min-h-screen text-white px-6">
-        <div className="absolute inset-0">
+      <section className="relative flex flex-col items-center justify-center min-h-screen text-white px-6 overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
           <Image
             src="/icons/background.jpg"
             alt="Background"
-            layout="fill"
-            objectFit="cover"
+            fill
+            priority
+            style={{ objectFit: "cover", objectPosition: "center" }}
             className="filter saturate-50"
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
 
-        <div className="relative z-50 text-left">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+        <div className="relative z-50 text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
             Katherine Sofia Segura S.
           </h1>
-          <p className="mt-4 text-lg text-gray-300">
+          <p className="mt-4 text-md md:text-lg text-gray-300">
             Descubre mis habilidades, experiencia y proyectos.
           </p>
         </div>

@@ -3,12 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-
 export default function About() {
   return (
     <motion.section
       id="about"
-      className="min-h-screen flex items-center bg-black px-12 py-20 relative overflow-hidden"
+      className="min-h-screen flex flex-col md:flex-row items-center bg-black px-6 md:px-12 py-20 relative overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -17,37 +16,44 @@ export default function About() {
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 relative z-10">
         {/* Texto alineado a la izquierda */}
         <div className="md:w-1/2 text-left">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
             Sobre Mí
           </h1>
-          <br></br>
-          <h5 className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+          <br />
+          <h5 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
             Pasión por la Innovación
           </h5>
-          <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+          <p className="mt-4 text-base md:text-lg text-gray-300 leading-relaxed">
             Soy una entusiasta de la tecnología con pasión por la innovación y la resolución de problemas. Me especializo en desarrollo web y bases de datos, con enfoque en rendimiento y escalabilidad.
           </p>
         </div>
       </div>
 
       {/* Imagen fusionada en el lado derecho */}
-      <div className="absolute right-0 top-0 h-full w-1/3">
+      <div className="absolute right-0 top-0 h-full w-full md:w-1/3">
         <div className="relative w-full h-full">
           <Image
-            src="/icons/katy.jpg" // Asegúrate de reemplazar esto con tu imagen real
+            src="/icons/katy.jpg"
             alt="Foto de perfil"
-            layout="fill"
-            objectFit="cover"
-            className="mask-radial"
+            fill
+            className="object-cover mask-gradient"
+            priority
           />
         </div>
       </div>
 
-      {/* Estilos personalizados para fusión */}
+      {/* Estilos personalizados para el degradado */}
       <style jsx>{`
-        .mask-radial {
-          mask-image: linear-gradient(to left, transparent, black 40%);
-          -webkit-mask-image: linear-gradient(to left, transparent, black 40%);
+        .mask-gradient {
+          mask-image: linear-gradient(to left, transparent 10%, black 60%);
+          -webkit-mask-image: linear-gradient(to left, transparent 10%, black 60%);
+        }
+
+        @media (max-width: 768px) {
+          .mask-gradient {
+            mask-image: linear-gradient(to top, transparent 10%, black 70%);
+            -webkit-mask-image: linear-gradient(to top, transparent 10%, black 70%);
+          }
         }
       `}</style>
     </motion.section>
