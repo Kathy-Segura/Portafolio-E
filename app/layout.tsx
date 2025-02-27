@@ -10,6 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <a href="#formation" className="hover:underline">Formacion</a>
           <a href="#skills" className="hover:underline">Habilidades</a>
           <a href="#experience" className="hover:underline">Experiencia</a>
+          <a href="#projects" className="hover:underline">Proyectos</a>
           <a href="#contact" className="hover:underline">Contacto</a>
           
         </nav>
