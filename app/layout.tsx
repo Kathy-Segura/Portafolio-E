@@ -1,40 +1,85 @@
+"use client";
 
+import { useState } from "react";
 import "./globals.css";
+import {
+  HiUser,
+  HiAcademicCap,
+  HiLightBulb,
+  HiBriefcase,
+  HiCode,
+  HiMail,
+  HiMenu,
+  HiX,
+} from "react-icons/hi";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <html lang="es">
       <body className="bg-gray-50">
-        <nav className="fixed top-0 left-0 w-full p-4 bg-purple-700 text-white flex justify-center gap-6">
-          <a href="#about" className="hover:underline">Sobre Mí</a>
-          <a href="#formation" className="hover:underline">Formacion</a>
-          <a href="#skills" className="hover:underline">Habilidades</a>
-          <a href="#experience" className="hover:underline">Experiencia</a>
-          <a href="#projects" className="hover:underline">Proyectos</a>
-          <a href="#contact" className="hover:underline">Contacto</a>
-          
-        </nav>
-        <main>{children}</main>
-      </body>
-    </html>
-  );
-}
+        <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-gray-900 to-black text-white px-6 md:px-8 py-4 flex justify-between items-center z-50 shadow-lg">
+          {/* Logo */}
+          <div className="text-xl font-light tracking-wide">
+            Portafolio Electrónico
+          </div>
 
+          {/* Botón Hamburguesa (visible en móviles) */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <HiX /> : <HiMenu />}
+          </button>
 
-/*import Link from 'next/link';
-import './globals.css';
-
-
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="es">
-      <body className="bg-gray-50">
-        <nav className="p-4 bg-purple-700 text-white">
-          <div className="flex justify-around">
-           
+          {/* Menú de navegación */}
+          <div
+            className={`absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent p-4 md:p-0 space-y-4 md:space-y-0 flex flex-col md:flex-row items-center gap-6 text-lg font-light transition-all duration-300 ${
+              isOpen ? "block" : "hidden md:flex"
+            }`}
+          >
+            <a
+              href="#about"
+              className="flex items-center gap-2 hover:text-gray-300 transition duration-300"
+            >
+              <HiUser /> Sobre Mí
+            </a>
+            <a
+              href="#formation"
+              className="flex items-center gap-2 hover:text-gray-300 transition duration-300"
+            >
+              <HiAcademicCap /> Formación
+            </a>
+            <a
+              href="#skills"
+              className="flex items-center gap-2 hover:text-gray-300 transition duration-300"
+            >
+              <HiLightBulb /> Habilidades
+            </a>
+            <a
+              href="#experience"
+              className="flex items-center gap-2 hover:text-gray-300 transition duration-300"
+            >
+              <HiBriefcase /> Experiencia
+            </a>
+            <a
+              href="#projects"
+              className="flex items-center gap-2 hover:text-gray-300 transition duration-300"
+            >
+              <HiCode /> Proyectos
+            </a>
+            <a
+              href="#contact"
+              className="flex items-center gap-2 hover:text-gray-300 transition duration-300"
+            >
+              <HiMail /> Contacto
+            </a>
           </div>
         </nav>
-        <main>{children}</main>
+
+        {/* Espaciado para evitar que el contenido quede oculto debajo del navbar */}
+        <main className="mt-16">{children}</main>
       </body>
     </html>
   );
